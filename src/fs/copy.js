@@ -35,8 +35,6 @@ const copy = async () => {
       copyFile(sourceFilePath, destinationFilePath, callback);
     })
   })
-
-
 };
 
 await copy();
