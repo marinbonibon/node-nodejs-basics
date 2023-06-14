@@ -1,6 +1,6 @@
 import { copyFile, readdir, mkdir, stat } from 'node:fs';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'node:path';
+import { join } from 'node:path';
+import {__dirname, errorMessage} from './constants.js';
 
 const callback = (err) => {
   if (err) throw err;
@@ -16,11 +16,8 @@ const checkDestFolderExist = async (destinationFolderPath, errorMessage) => {
 }
 
 const copy = async () => {
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = dirname(__filename);
   const sourceFolderPath = join(__dirname, 'files');
   const destinationFolderPath = join(__dirname, 'files_copy');
-  const errorMessage = 'FS operation failed';
 
   readdir(sourceFolderPath, (err, files) => {
     if (err) throw new Error(errorMessage);
