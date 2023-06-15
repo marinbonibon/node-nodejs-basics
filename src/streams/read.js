@@ -6,13 +6,15 @@ const read = async () => {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = dirname(__filename);
   const filePath = join(__dirname, 'files', 'fileToRead.txt');
-  const stream = createReadStream(filePath)
+  const stream = createReadStream(filePath);
   stream.on('data', (data) => {
     process.stdout.write(data);
   })
   stream.on('error', (err) => {
     console.log(`Error while createReadStream: ${err}`);
   });
+
+  stream.end();
 
 };
 
