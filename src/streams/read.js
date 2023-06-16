@@ -13,9 +13,6 @@ const read = async () => {
   stream.on('error', (err) => {
     console.log(`Error while createReadStream: ${err}`);
   });
-
-  stream.end();
-
 };
 
 await read();
